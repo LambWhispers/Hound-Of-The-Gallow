@@ -1,0 +1,31 @@
+
+/* Visible, real-time moving smoke across EVERY section, not just the hero. */
+#pageSmoke{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;pointer-events:none!important;z-index:110!important;opacity:.73;display:block!important;transition:opacity .35s ease!important;}
+#motionSwitch:not(:checked) ~ #pageSmoke{opacity:0!important;visibility:hidden!important}
+#motionSwitch:checked ~ #pageSmoke{opacity:.73!important;visibility:visible!important}
+/* Any former hero-only overlay is disabled to prevent doubling the smoke */
+#realSmoke,#livingSmoke,.page-atmosphere,.hero-smoke{display:none!important}
+/* Readable, cohesive chronicle layout: no giant blank gaps */
+.section{padding-top:66px!important;padding-bottom:66px!important}
+.sectionhead{margin-bottom:27px!important}
+.sectionhead h2{margin-top:6px!important;line-height:1.14!important}
+.featuregrid,.split{gap:36px!important}
+.integrated-profile{margin-top:26px!important;padding-top:18px!important}
+.hero{min-height:min(820px,94svh)!important}
+.hero-foot{padding:12px 0!important}
+.gallery{gap:22px!important}
+.gallery figure{margin-bottom:10px!important}
+.eyebrow{font-weight:800!important;letter-spacing:.2em!important}
+p,.factrow,.detail,li{font-weight:550!important;line-height:1.72!important}
+/* Softer transitions rather than hard blank areas */
+.section.darkband{background:linear-gradient(180deg,#130e15,#171019 52%,#110d13)!important}
+.section:not(.darkband){background:linear-gradient(180deg,#100c12,#130e15 65%,#100c12)!important}
+.hero-art{animation:livingHero 18s ease-in-out infinite alternate!important;}
+#motionSwitch:not(:checked) ~ main .hero-art{animation-play-state:paused!important}
+.motion-control{z-index:2147483647!important;position:fixed!important;top:16px!important;right:18px!important;cursor:pointer!important;pointer-events:auto!important;padding:10px 14px!important;}
+.motion-control .smoke-status{font-size:10px!important;letter-spacing:.07em!important;color:#efc2ca!important;display:block!important;margin-top:3px!important}
+#motionSwitch:not(:checked) + .motion-control .smoke-status{font-size:0!important}
+#motionSwitch:not(:checked) + .motion-control .smoke-status:after{content:'SMOKE PAUSED';font-size:10px!important}
+#motionSwitch:checked + .motion-control .smoke-status{font-size:10px!important}
+@media(max-width:700px){.section{padding-top:42px!important;padding-bottom:42px!important}.hero{min-height:660px!important}.gallery{gap:16px!important}#pageSmoke{opacity:.48!important}}
+@media(prefers-reduced-motion:reduce){#motionSwitch:checked ~ #pageSmoke{display:block!important;opacity:.73!important;visibility:visible!important}}
