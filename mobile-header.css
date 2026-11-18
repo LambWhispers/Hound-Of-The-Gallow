@@ -1,0 +1,97 @@
+/* Compact responsive header for The Gallows Archive.
+   Desktop presentation remains unchanged. */
+@media (max-width: 900px) {
+  :root { --nav-height: 112px; }
+  header.topbar.wrap {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 116px !important;
+    grid-template-rows: 49px 43px !important;
+    align-content: start !important;
+    align-items: center !important;
+    gap: 4px 8px !important;
+    min-height: 112px !important;
+    height: 112px !important;
+    padding: 8px 13px 7px !important;
+    overflow: visible !important;
+  }
+  header.topbar .navbrand {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-basis: auto !important;
+    font-size: clamp(.67rem, 2.7vw, .91rem) !important;
+    letter-spacing: .055em !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  header.topbar .navlinks {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-basis: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 3px 0 7px !important;
+    gap: 22px !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+  header.topbar .navlinks::-webkit-scrollbar { display: none; }
+  header.topbar .navlinks a {
+    flex: 0 0 auto !important;
+    scroll-snap-align: center;
+    font-size: .67rem !important;
+    letter-spacing: .07em !important;
+  }
+  .motion-control {
+    position: fixed !important;
+    top: 15px !important;
+    right: 13px !important;
+    width: 112px !important;
+    min-width: 112px !important;
+    max-width: 112px !important;
+    height: 37px !important;
+    min-height: 37px !important;
+    padding: 5px 8px !important;
+    border-width: 1px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 3px 14px #0008 !important;
+    font-size: 0 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+  .motion-control .smoke-status, #motionSwitch:not(:checked) + .motion-control .smoke-status { display: none !important; }
+  .motion-control .motion-label-on, .motion-control .motion-label-off {
+    font-size: 0 !important;
+    line-height: 1 !important;
+  }
+  #motionSwitch:checked + .motion-control .motion-label-on::after {
+    content: '◉ Smoke on';
+    font-size: 12px !important;
+    font-weight: 750 !important;
+    letter-spacing: .01em;
+  }
+  #motionSwitch:not(:checked) + .motion-control .motion-label-off::after {
+    content: '◎ Smoke off';
+    font-size: 12px !important;
+    font-weight: 750 !important;
+    letter-spacing: .01em;
+  }
+  header.topbar .nav-progress { bottom: 0 !important; }
+  section[id], .integrated-profile[id] { scroll-margin-top: 126px !important; }
+}
+@media (max-width: 380px) {
+  header.topbar.wrap { grid-template-columns: minmax(0, 1fr) 104px !important; padding-inline: 9px !important; }
+  .motion-control { width: 103px !important; min-width: 103px !important; max-width: 103px !important; right: 9px !important; }
+  header.topbar .navbrand { font-size: .64rem !important; }
+}
